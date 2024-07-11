@@ -9527,3 +9527,28 @@ menu() {
 }
 cronFunction
 menu
+# Function to generate VLESS subscription link
+generateVLESSSubscriptionLink() {
+    local uuid=$1
+    local domain=$2
+    local port=$3
+    local link="vless://${uuid}@${domain}:${port}?encryption=none&security=tls&type=ws&host=${domain}&path=/vless#VLESS-TLS"
+    echo "VLESS Subscription Link: ${link}"
+}
+
+# After creating the account, display the subscription link
+createAccount() {
+    # Your existing code for account creation
+    # ...
+    
+    # Example UUID, domain, and port values
+    local uuid="your-uuid-here"
+    local domain="your-domain.com"
+    local port="443"
+
+    # Generate and display the VLESS subscription link
+    generateVLESSSubscriptionLink "$uuid" "$domain" "$port"
+}
+
+# Call createAccount function to create an account and display the subscription link
+createAccount
