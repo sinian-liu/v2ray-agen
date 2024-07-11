@@ -5776,8 +5776,8 @@ unInstall() {
         echoContent green " ---> 删除伪装网站完成"
     fi
 
-    rm -rf /usr/bin/sinian
-    rm -rf /usr/sbin/sinian
+    rm -rf /usr/bin/vasma
+    rm -rf /usr/sbin/vasma
     echoContent green " ---> 卸载快捷方式完成"
     echoContent green " ---> 卸载v2ray-agent脚本完成"
 }
@@ -6179,7 +6179,7 @@ updateV2RayAgent() {
     version=$(grep '当前版本：v' "/etc/v2ray-agent/install.sh" | awk -F "[v]" '{print $2}' | tail -n +2 | head -n 1 | awk -F "[\"]" '{print $1}')
 
     echoContent green "\n ---> 更新完毕"
-    echoContent yellow " ---> 请手动执行[sinian]打开脚本"
+    echoContent yellow " ---> 请手动执行[vasma]打开脚本"
     echoContent green " ---> 当前版本：${version}\n"
     echoContent yellow "如更新不成功，请手动执行下面命令\n"
     echoContent skyBlue "wget -P /root -N --no-check-certificate https://raw.githubusercontent.com/mack-a/v2ray-agent/master/install.sh && chmod 700 /root/install.sh && /root/install.sh"
@@ -6314,25 +6314,25 @@ aliasInstall() {
 
     if [[ -f "$HOME/install.sh" ]] && [[ -d "/etc/v2ray-agent" ]] && grep <"$HOME/install.sh" -q "作者:mack-a"; then
         mv "$HOME/install.sh" /etc/v2ray-agent/install.sh
-        local sinianType=
+        local vasmaType=
         if [[ -d "/usr/bin/" ]]; then
-            if [[ ! -f "/usr/bin/sinian" ]]; then
-                ln -s /etc/v2ray-agent/install.sh /usr/bin/sinian
-                chmod 700 /usr/bin/sinian
-                sinianType=true
+            if [[ ! -f "/usr/bin/vasma" ]]; then
+                ln -s /etc/v2ray-agent/install.sh /usr/bin/vasma
+                chmod 700 /usr/bin/vasma
+                vasmaType=true
             fi
 
             rm -rf "$HOME/install.sh"
         elif [[ -d "/usr/sbin" ]]; then
-            if [[ ! -f "/usr/sbin/sinian" ]]; then
-                ln -s /etc/v2ray-agent/install.sh /usr/sbin/sinian
-                chmod 700 /usr/sbin/sinian
-                sinianType=true
+            if [[ ! -f "/usr/sbin/vasma" ]]; then
+                ln -s /etc/v2ray-agent/install.sh /usr/sbin/vasma
+                chmod 700 /usr/sbin/vasma
+                vasmaType=true
             fi
             rm -rf "$HOME/install.sh"
         fi
-        if [[ "${sinianType}" == "true" ]]; then
-            echoContent green "快捷方式创建成功，可执行[sinian]重新打开脚本"
+        if [[ "${vasmaType}" == "true" ]]; then
+            echoContent green "快捷方式创建成功，可执行[vasma]重新打开脚本"
         fi
     fi
 }
@@ -9425,16 +9425,15 @@ menu() {
     cd "$HOME" || exit
     echoContent red "\n=============================================================="
     echoContent green "当前版本：v3.3.9"
-    echoContent green "Github：https://github.com/sinian-liu/v2ray-agent"
+    echoContent green "Github：https://github.com//sinian-liu/v2ray-agent"
     echoContent green "描述：八合一共存脚本\c"
     showInstallStatus
     checkWgetShowProgress
     echoContent red "\n=========================== 推广区============================"
     echoContent red "                                              "
-    echoContent green "低价VPS购买地址：https://my.frantech.ca/aff.php?aff=4337"
+    echoContent green "低价VPS ：https://my.frantech.ca/aff.php?aff=4337"
     echoContent red "=============================================================="
     if [[ -n "${coreInstallType}" ]]; then
-        echoContent orange "脚本打开命令：sinian"
         echoContent yellow "1.重新安装"
     else
         echoContent yellow "1.安装"
@@ -9526,28 +9525,3 @@ menu() {
 }
 cronFunction
 menu
-# Function to generate VLESS subscription link
-generateVLESSSubscriptionLink() {
-    local uuid=$1
-    local domain=$2
-    local port=$3
-    local link="vless://${uuid}@${domain}:${port}?encryption=none&security=tls&type=ws&host=${domain}&path=/vless#VLESS-TLS"
-    echo "VLESS Subscription Link: ${link}"
-}
-
-# After creating the account, display the subscription link
-createAccount() {
-    # Your existing code for account creation
-    # ...
-    
-    # Example UUID, domain, and port values
-    local uuid="your-uuid-here"
-    local domain="your-domain.com"
-    local port="443"
-
-    # Generate and display the VLESS subscription link
-    generateVLESSSubscriptionLink "$uuid" "$domain" "$port"
-}
-
-# Call createAccount function to create an account and display the subscription link
-createAccount
