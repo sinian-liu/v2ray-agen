@@ -9424,7 +9424,6 @@ singBoxVersionManageMenu() {
 menu() {
     cd "$HOME" || exit
     echoContent red "\n=============================================================="
-    echoContent green "作者：sinian-liu"
     echoContent green "当前版本：v3.3.9"
     echoContent green "Github：https://github.com/sinian-liu/v2ray-agent"
     echoContent green "描述：八合一共存脚本\c"
