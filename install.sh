@@ -42,12 +42,6 @@ checkCentosSELinux() {
     fi
 }
 checkSystem() {
-# 安装 jq 用于 JSON 处理
-if [[ ${release} == "centos" ]]; then
-    yum install -y jq
-elif [[ ${release} == "debian" || ${release} == "ubuntu" ]]; then
-    apt-get install -y jq
-fi
     if [[ -n $(find /etc -name "redhat-release") ]] || grep </proc/version -q -i "centos"; then
         mkdir -p /etc/yum.repos.d
 
@@ -9532,35 +9526,3 @@ menu() {
 }
 cronFunction
 menu
-# 订阅链接功能
-generateSubscriptionLink() {
-    local uuid=$1
-    local domain="your_domain.com"
-    local port="443"
-    local network="ws"
-    local path="/path"
-    local vless_link="vless://${uuid}@${domain}:${port}?type=${network}&path=${path}#remark"
-    local base64_vless_link=$(echo -n "${vless_link}" | base64)
-    echo "${base64_vless_link}"
-}
-
-# 对外访问的URL接口
-handleSubscriptionRequest() {
-    local uuid=$1
-    if [[ -z "${uuid}" ]]; then
-        echoContent red "UUID不能为空"
-        exit 1
-    fi
-
-    local subscription_link=$(generateSubscriptionLink ${uuid})
-    echoContent green "生成的订阅链接：${subscription_link}"
-}
-
-# 示例：处理外部请求
-if [[ $1 == "subscribe" ]]; then
-    handleSubscriptionRequest $2
-    exit 0
-fi
-
-# 原有的安装逻辑继续放在这里...
-# ...
