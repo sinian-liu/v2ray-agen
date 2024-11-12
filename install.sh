@@ -9461,8 +9461,8 @@ menu() {
     echoContent skyBlue "-------------------------脚本管理-----------------------------"
     echoContent yellow "20.卸载脚本"
     echoContent red "=============================================================="
-    echoContent orange "37VPS主机评测：https://1373737.xyz"
-    echoContent orange "低价VPS ：https://my.frantech.ca/aff.php?aff=4337"
+    echoContent yellow "37VPS主机评测：https://1373737.xyz"
+    echoContent yellow "低价VPS ：https://my.frantech.ca/aff.php?aff=4337"
     echoContent red "=============================================================="
     mkdirTools
     aliasInstall
