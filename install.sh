@@ -9463,6 +9463,7 @@ menu() {
     echoContent red "=============================================================="
     echoContent orange "37VPS主机评测：https://1373737.xyz"
     echoContent orange "低价VPS ：https://my.frantech.ca/aff.php?aff=4337"
+    echoContent red "=============================================================="
     mkdirTools
     aliasInstall
     read -r -p "请选择:" selectInstallType
