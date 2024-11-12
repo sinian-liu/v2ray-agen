@@ -6332,7 +6332,7 @@ aliasInstall() {
             rm -rf "$HOME/install.sh"
         fi
         if [[ "${vasmaType}" == "true" ]]; then
-            echoContent green "快捷方式创建成功，可执行[vasma]重新打开脚本"
+            echoContent red "快捷方式创建成功，可执行[sinian]重新打开脚本"
         fi
     fi
 }
@@ -9461,6 +9461,8 @@ menu() {
     echoContent skyBlue "-------------------------脚本管理-----------------------------"
     echoContent yellow "20.卸载脚本"
     echoContent red "=============================================================="
+    echoContent orange "37VPS主机评测：https://1373737.xyz"
+    echoContent orange "低价VPS ：https://my.frantech.ca/aff.php?aff=4337"
     mkdirTools
     aliasInstall
     read -r -p "请选择:" selectInstallType
