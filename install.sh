@@ -9431,7 +9431,7 @@ menu() {
     showInstallStatus
     checkWgetShowProgress
     echoContent red "\n=========================== 推广区============================"
-    echoContent red "                                              "
+    echoContent red "37VPS主机评测：https://1373737.xyz"
     echoContent green "低价VPS ：https://my.frantech.ca/aff.php?aff=4337"
     echoContent red "=============================================================="
     if [[ -n "${coreInstallType}" ]]; then
