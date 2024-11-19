@@ -9429,38 +9429,25 @@ menu() {
     echoContent red "安装完成后输入sinian即可打开脚本"
     echoContent green "描述：八合一共存脚本\c"
     showInstallStatus
-# 自定义函数 echoContent 用于设置颜色
-echoContent() {
-    color=$1
-    content=$2
-    case $color in
-        red)
-            echo -e "\033[31m${content}\033[0m"
-            ;;
-        green)
-            echo -e "\033[32m${content}\033[0m"
-            ;;
-        orange)
-            echo -e "\033[38;5;214m${content}\033[0m"
-            ;;
-        blue)
-            echo -e "\033[34m${content}\033[0m"
-            ;;
-        *)
-            echo -e "${content}"
-            ;;
-    esac
-}
-
-# 显示推广区
-echoContent blue "\n=========================== 推广区 ============================"
-echoContent orange "37VPS主机评测：\033[31mhttps://1373737.xyz\033[0m"
-echoContent orange "低价VPS ：\033[31mhttps://my.frantech.ca/aff.php?aff=4337\033[0m"
-
-# 新增链接：VPS一键测试脚本，放置在分隔线上方
-echoContent orange "VPS一键测试脚本：\033[31mhttps://github.com/sinian-liu/VPStest\033[0m"
-
-echoContent blue "=============================================================="
+# 主菜单
+menu() {
+    cd "$HOME" || exit
+    echoContent red "\n=============================================================="
+    echoContent green "当前版本：v3.3.9"
+    echoContent green "Github：https://github.com//sinian-liu/v2ray-agent"
+    echoContent red "安装完成后输入sinian即可打开脚本"
+    echoContent green "描述：八合一共存脚本\c"
+    showInstallStatus
+    checkWgetShowProgress
+    echoContent red "\n=========================== 推广区============================"
+    echoContent red "37VPS主机评测：https://1373737.xyz"
+    echoContent green "低价VPS ：https://my.frantech.ca/aff.php?aff=4337"
+    echoContent red "=============================================================="
+    if [[ -n "${coreInstallType}" ]]; then
+        echoContent yellow "1.重新安装"
+    else
+        echoContent yellow "1.安装"
+    fi
     if [[ -n "${coreInstallType}" ]]; then
         echoContent yellow "1.重新安装"
     else
@@ -9490,6 +9477,7 @@ echoContent blue "==============================================================
     echoContent red "=============================================================="
     echoContent yellow "37VPS主机评测：https://1373737.xyz"
     echoContent yellow "低价VPS ：https://my.frantech.ca/aff.php?aff=4337"
+    echoContent yellow "VPS一键测试脚本：https://github.com/sinian-liu/VPStest"
     echoContent red "=============================================================="
     mkdirTools
     aliasInstall
