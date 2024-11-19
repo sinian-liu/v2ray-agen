@@ -9448,11 +9448,6 @@ menu() {
     else
         echoContent yellow "1.安装"
     fi
-    if [[ -n "${coreInstallType}" ]]; then
-        echoContent yellow "1.重新安装"
-    else
-        echoContent yellow "1.安装"
-    fi
 
     echoContent yellow "2.任意组合安装"
     echoContent yellow "4.Hysteria2管理"
