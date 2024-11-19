@@ -9429,15 +9429,6 @@ menu() {
     echoContent red "安装完成后输入sinian即可打开脚本"
     echoContent green "描述：八合一共存脚本\c"
     showInstallStatus
-# 主菜单
-menu() {
-    cd "$HOME" || exit
-    echoContent red "\n=============================================================="
-    echoContent green "当前版本：v3.3.9"
-    echoContent green "Github：https://github.com//sinian-liu/v2ray-agent"
-    echoContent red "安装完成后输入sinian即可打开脚本"
-    echoContent green "描述：八合一共存脚本\c"
-    showInstallStatus
     checkWgetShowProgress
     echoContent red "\n=========================== 推广区============================"
     echoContent red "37VPS主机评测：https://1373737.xyz"
@@ -9472,7 +9463,6 @@ menu() {
     echoContent red "=============================================================="
     echoContent yellow "37VPS主机评测：https://1373737.xyz"
     echoContent yellow "低价VPS ：https://my.frantech.ca/aff.php?aff=4337"
-    echoContent yellow "VPS一键测试脚本：https://github.com/sinian-liu/VPStest"
     echoContent red "=============================================================="
     mkdirTools
     aliasInstall
